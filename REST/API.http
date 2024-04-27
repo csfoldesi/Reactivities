@@ -1,0 +1,12 @@
+@API_HostAddress = http://localhost:5000/api
+
+GET {{API_HostAddress}}/activities/
+Accept: application/json
+
+###
+
+
+GET {{API_HostAddress}}/activities/350ca0b2-3e2f-4d72-a2d8-43aafb3b9b0c
+Accept: application/json
+
+###
