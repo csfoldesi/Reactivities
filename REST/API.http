@@ -2,6 +2,7 @@
 
 GET {{API_HostAddress}}/activities/
 Accept: application/json
+Origin: http://localhost:3000
 
 ###
 
