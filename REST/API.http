@@ -7,7 +7,40 @@ Origin: http://localhost:3000
 ###
 
 
-GET {{API_HostAddress}}/activities/350ca0b2-3e2f-4d72-a2d8-43aafb3b9b0c
+GET {{API_HostAddress}}/activities/be4996ea-71f5-463f-af08-d311ac29b955
+Accept: application/json
+
+###
+
+POST {{API_HostAddress}}/activities
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": "{{$guid}}",
+  "title": "Test Create Activity",
+  "date": "{{$datetime iso8601}}",
+  "description": "Description of the test event",
+  "category": "Culture",
+  "city": "London",
+  "venue": "Tower of London"
+}
+###
+
+
+PUT {{API_HostAddress}}/activities/be4996ea-71f5-463f-af08-d311ac29b955
+Content-Type: application/json; charset=utf-8
+
+{
+  "title": "Test Create Activity updated 2",
+  "date": "2024-04-28T20:54:25.127",
+  "description": "Description of the test event updated 2",
+  "category": "Culture",
+  "city": "London",
+  "venue": "Tower of London 2"
+}
+###
+
+DELETE  {{API_HostAddress}}/activities/be4996ea-71f5-463f-af08-d311ac29b955
 Accept: application/json
 
 ###
