@@ -1,15 +1,12 @@
 import React, { ChangeEvent, useState } from "react";
 import { Button, Form, FormInput, FormTextArea, Segment } from "semantic-ui-react";
-import { Activity } from "../../../modules/activity";
+import { useStore } from "../../../app/stores/store";
+import { observer } from "mobx-react-lite";
 
-interface Props {
-  activity: Activity | undefined;
-  closeForm: () => void;
-  createOrEdit: (activity: Activity) => void;
-  submitting: boolean;
-}
+export default observer(function ActivityForm() {
+  const { activityStore } = useStore();
+  const { selectedActivity, closeForm, createActivity, updateActivity, loading } = activityStore;
 
-export default function ActivityForm({ activity: selectedActivity, closeForm, createOrEdit, submitting }: Props) {
   const initialState = selectedActivity ?? {
     id: "",
     title: "",
@@ -23,7 +20,7 @@ export default function ActivityForm({ activity: selectedActivity, closeForm, cr
   const [activity, setActivity] = useState(initialState);
 
   function handleSubmit() {
-    createOrEdit(activity);
+    activity.id ? updateActivity(activity) : createActivity(activity);
   }
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -45,7 +42,7 @@ export default function ActivityForm({ activity: selectedActivity, closeForm, cr
         <FormInput placeholder="Date" value={activity.date} name="date" onChange={handleInputChange} type="date" />
         <FormInput placeholder="City" value={activity.city} name="city" onChange={handleInputChange} />
         <FormInput placeholder="Venue" value={activity.venue} name="venue" onChange={handleInputChange} />
-        <Button floated="right" positive type="submit" loading={submitting}>
+        <Button floated="right" positive type="submit" loading={loading}>
           Submit
         </Button>
         <Button onClick={closeForm} floated="right" type="button">
@@ -54,4 +51,4 @@ export default function ActivityForm({ activity: selectedActivity, closeForm, cr
       </Form>
     </Segment>
   );
-}
+});
