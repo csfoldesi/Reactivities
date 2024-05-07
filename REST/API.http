@@ -7,7 +7,7 @@ Origin: http://localhost:3000
 ###
 
 
-GET {{API_HostAddress}}/activities/be4996ea-71f5-463f-af08-d311ac29b955
+GET {{API_HostAddress}}/activities/637101df-82fb-432e-9263-76b21bc41dda
 Accept: application/json
 
 ###
@@ -27,7 +27,16 @@ Content-Type: application/json; charset=utf-8
 ###
 
 
-PUT {{API_HostAddress}}/activities/be4996ea-71f5-463f-af08-d311ac29b955
+POST {{API_HostAddress}}/activities
+Content-Type: application/json; charset=utf-8
+
+{
+}
+###
+
+
+
+PUT {{API_HostAddress}}/activities/7268fe61-418b-47ac-ae83-64597c1d90a7
 Content-Type: application/json; charset=utf-8
 
 {
@@ -36,11 +45,11 @@ Content-Type: application/json; charset=utf-8
   "description": "Description of the test event updated 2",
   "category": "Culture",
   "city": "London",
-  "venue": "Tower of London 2"
+  "venue": "Tower of London 3"
 }
 ###
 
-DELETE  {{API_HostAddress}}/activities/be4996ea-71f5-463f-af08-d311ac29b955
+DELETE  {{API_HostAddress}}/activities/637101df-82fb-432e-9263-76b21bc41dda
 Accept: application/json
 
 ###

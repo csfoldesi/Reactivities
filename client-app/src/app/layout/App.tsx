@@ -7,12 +7,17 @@ import ActivityDashboard from "../../features/activities/dashboard/ActivityDashb
 import ActivityForm from "../../features/activities/form/ActivityForm";
 import { Container } from "semantic-ui-react";
 import ActivityDetails from "../../features/activities/details/ActivityDetails";
+import TestErrors from "../../features/errors/TestError";
+import { ToastContainer } from "react-toastify";
+import NotFound from "../../features/errors/NotFound";
+import ServerError from "../../features/errors/ServerError";
 
 function App() {
   const location = useLocation();
 
   return (
     <>
+      <ToastContainer position="bottom-right" hideProgressBar />
       <Routes>
         <Route path="/" Component={HomePage} />
         <Route path="/" element={<Layout />}>
@@ -20,6 +25,9 @@ function App() {
           <Route path="activities/:id" Component={ActivityDetails} />
           <Route path="createActivity" Component={ActivityForm} key={location.key} />
           <Route path="manage/:id" Component={ActivityForm} key={location.key} />
+          <Route path="/errors" Component={TestErrors} />
+          <Route path="/server-error" Component={ServerError} />
+          <Route path="*" Component={NotFound} />
         </Route>
       </Routes>
     </>
