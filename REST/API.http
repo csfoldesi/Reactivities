@@ -7,8 +7,9 @@ Origin: http://localhost:3000
 ###
 
 
-GET {{API_HostAddress}}/activities/637101df-82fb-432e-9263-76b21bc41dda
+GET {{API_HostAddress}}/activities/342c4df2-0550-4dc1-83a2-29d1107ac119
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImJvYiIsIm5hbWVpZCI6IjllNjQ4MTI5LTk4N2QtNDYxOC04NjZkLTcxMGQyZjY5OGY4NCIsImVtYWlsIjoiYm9iQHRlc3QuY29tIiwibmJmIjoxNzE1NDIxMTg5LCJleHAiOjE3MTYwMjU5ODksImlhdCI6MTcxNTQyMTE4OX0.9EuImc5zbCD9C-rkrhIllSoDVw2L3WAwh8aT9Y7TIMppipe21Yd5p77tbO1frXgN85jxOiHIwicaLfOuFdeCyw
 
 ###
 

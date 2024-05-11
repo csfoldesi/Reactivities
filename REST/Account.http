@@ -1,0 +1,39 @@
+@API_HostAddress = http://localhost:5000/api/account
+
+GET {{API_HostAddress}}
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImJvYiIsIm5hbWVpZCI6IjllNjQ4MTI5LTk4N2QtNDYxOC04NjZkLTcxMGQyZjY5OGY4NCIsImVtYWlsIjoiYm9iQHRlc3QuY29tIiwibmJmIjoxNzE1NDI1NzE3LCJleHAiOjE3MTYwMzA1MTcsImlhdCI6MTcxNTQyNTcxN30.uUMgx3-RecG7kF_TextdjEZ2BFFkwQtpdjSqJSdzHKn-qBvDSbswldkuieMuleJEESMl8Ip285io1jldNxIVjg
+
+###
+
+
+POST {{API_HostAddress}}
+Content-Type: application/json; charset=utf-8
+
+{
+  "email": "bob@test.com",
+  "password": "Pa$$w0rd"
+}
+###
+
+POST {{API_HostAddress}}
+Content-Type: application/json; charset=utf-8
+
+{
+  "email": "bob1@test.com",
+  "password": "Pa$$w0rd"
+}
+###
+
+
+
+POST {{API_HostAddress}}/register
+Content-Type: application/json; charset=utf-8
+
+{
+  "email": "bob1@test.com",
+  "password": "Password+1",
+  "displayName": "Bob",
+  "username": "bob1"
+}
+###
