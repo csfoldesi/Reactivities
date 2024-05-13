@@ -31,7 +31,7 @@ POST {{API_HostAddress}}/register
 Content-Type: application/json; charset=utf-8
 
 {
-  "email": "bob1@test.com",
+  "email": "bob@test.com",
   "password": "Password+1",
   "displayName": "Bob",
   "username": "bob1"

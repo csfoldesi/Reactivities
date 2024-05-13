@@ -1,23 +1,38 @@
 import React from "react";
-import { Button, Container, Menu, MenuItem } from "semantic-ui-react";
+import { Button, Container, Dropdown, Image, Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
+import { useStore } from "../stores/store";
+import { observer } from "mobx-react-lite";
+import { Link } from "react-router-dom";
 
-export default function NavBar() {
+export default observer(function NavBar() {
+  const {
+    userStore: { user, logout },
+  } = useStore();
   return (
     <Menu inverted fixed="top">
       <Container>
-        <MenuItem header as={NavLink} to="/">
+        <Menu.Item header as={NavLink} to="/">
           <img src="/assets/logo.png" alt="logo" style={{ marginRight: "10px" }} />
           Reactivities
-        </MenuItem>
-        <MenuItem name="Activities" as={NavLink} to="/activities" />
-        <MenuItem name="Errors" as={NavLink} to="/errors" />
-        <MenuItem>
+        </Menu.Item>
+        <Menu.Item name="Activities" as={NavLink} to="/activities" />
+        <Menu.Item name="Errors" as={NavLink} to="/errors" />
+        <Menu.Item>
           <Button positive as={NavLink} to="/createActivity">
             Create Activity
           </Button>
-        </MenuItem>
+        </Menu.Item>
+        <Menu.Item position="right">
+          <Image src={user?.image || "/assets/user.png"} avatar spaced="right" />
+          <Dropdown pointing="top left" text={user?.displayName}>
+            <Dropdown.Menu>
+              <Dropdown.Item as={Link} to={`/profile/${user?.username}`} icon="user" text="My profile" />
+              <Dropdown.Item onClick={logout} icon="power" text="Logout" />
+            </Dropdown.Menu>
+          </Dropdown>
+        </Menu.Item>
       </Container>
     </Menu>
   );
-}
+});
