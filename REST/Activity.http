@@ -1,0 +1,78 @@
+@API_HostAddress = http://localhost:5000/api
+
+
+
+# Login
+# @name postLogin
+POST {{API_HostAddress}}/account
+Content-Type: application/json; charset=utf-8
+
+{
+  "email": "bob@test.com",
+  "password": "Pa$$w0rd"
+}
+
+###
+@token = {{postLogin.response.body.token}}
+
+
+# Get account info
+GET {{API_HostAddress}}/account
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+###
+
+# Create an Activity
+POST {{API_HostAddress}}/activities
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+{
+  "id": "{{$guid}}",
+  "title": "Test Create Activity",
+  "date": "{{$datetime iso8601}}",
+  "description": "Description of the test event - bob",
+  "category": "Culture",
+  "city": "London",
+  "venue": "Tower of London"
+}
+###
+
+# Edit an activity
+PUT {{API_HostAddress}}/activities/d11c5255-4999-4d41-8815-bdb7fcd3d4c9
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+{
+  "title": "Test Create Activity - edited by tom",
+  "date": "2024-05-19T19:43:07.802",
+  "description": "Description of the test event",
+  "category": "Culture",
+  "city": "London",
+  "venue": "Tower of London"
+}
+###
+
+
+
+# Get Activity details
+GET {{API_HostAddress}}/activities/d11c5255-4999-4d41-8815-bdb7fcd3d4c9
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+# Get Activity list
+GET {{API_HostAddress}}/activities/
+Accept: application/json
+Origin: http://localhost:3000
+Authorization: Bearer {{token}}
+###
+
+# Attend to an event
+POST {{API_HostAddress}}/activities/8d64d7a3-5aa8-4350-a6de-1ae2c9b2aaff/attend
+Accept: application/json
+Origin: http://localhost:3000
+Authorization: Bearer {{token}}
+###
