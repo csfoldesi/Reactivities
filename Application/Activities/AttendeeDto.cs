@@ -1,6 +1,6 @@
-﻿namespace Application.Profile;
+﻿namespace Application.Activities;
 
-public class Profile
+public class AttendeeDto
 {
     public required string Username { get; set; }
 

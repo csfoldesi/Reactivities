@@ -1,0 +1,29 @@
+@API_HostAddress = http://localhost:5000/api
+
+# Login
+# @name postLogin
+POST {{API_HostAddress}}/account
+Content-Type: application/json; charset=utf-8
+
+{
+  "email": "bob@test.com",
+  "password": "Pa$$w0rd"
+}
+
+###
+@token = {{postLogin.response.body.token}}
+
+
+# DELETE photo
+DELETE {{API_HostAddress}}/photos/drkowl94gxxiore8dba7
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+###
+
+# SET main
+POST {{API_HostAddress}}/photos/fqa8rucirio8fbury9or1/setMain
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+###
