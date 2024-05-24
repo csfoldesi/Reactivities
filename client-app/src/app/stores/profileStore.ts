@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { Photo, Profile } from "../models/profile";
+import { Photo, Profile, ProfileFormValues } from "../models/profile";
 import agent from "../api/agent";
 import { store } from "./store";
 
@@ -81,6 +81,26 @@ export default class ProfileStore {
       runInAction(() => {
         if (this.profile && this.profile.photos) {
           this.profile.photos = this.profile.photos.filter((p) => p.id !== photo.id);
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      runInAction(() => (this.loading = false));
+    }
+  };
+
+  update = async (profile: ProfileFormValues) => {
+    this.loading = true;
+    try {
+      var result = await agent.Profiles.update(profile);
+      runInAction(() => {
+        if (this.profile) {
+          this.profile.displayName = result.displayName;
+          this.profile.bio = result.bio;
+        }
+        if (store.userStore.user) {
+          store.userStore.user.displayName = result.displayName;
         }
       });
     } catch (error) {

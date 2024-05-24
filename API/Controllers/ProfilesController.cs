@@ -10,4 +10,10 @@ public class ProfilesController : BaseApiController
     {
         return HandleResult(await Mediator.Send(new Details.Query { Username = username }));
     }
+
+    [HttpPut]
+    public async Task<IActionResult> EditProfile(Update.Command command)
+    {
+        return HandleResult<Profile>(await Mediator.Send(command));
+    }
 }

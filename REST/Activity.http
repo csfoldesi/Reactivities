@@ -8,7 +8,7 @@ POST {{API_HostAddress}}/account
 Content-Type: application/json; charset=utf-8
 
 {
-  "email": "bob@test.com",
+  "email": "tom@test.com",
   "password": "Pa$$w0rd"
 }
 
@@ -40,24 +40,25 @@ Authorization: Bearer {{token}}
 ###
 
 # Edit an activity
-PUT {{API_HostAddress}}/activities/d11c5255-4999-4d41-8815-bdb7fcd3d4c9
+PUT {{API_HostAddress}}/activities/028db0f3-8dfb-47d0-a1bb-1df46134644a
 Content-Type: application/json; charset=utf-8
 Authorization: Bearer {{token}}
 
 {
-  "title": "Test Create Activity - edited by tom",
-  "date": "2024-05-19T19:43:07.802",
-  "description": "Description of the test event",
-  "category": "Culture",
+  "title": "Future Activity 81",
+  "date": "2025-01-19T20:38:52.6820048",
+  "description": "Activity 8 months in future",
+  "category": "drinks",
   "city": "London",
-  "venue": "Tower of London"
+  "venue": "Pub",
+  "hostUsername": "tom"  
 }
 ###
 
 
 
 # Get Activity details
-GET {{API_HostAddress}}/activities/d11c5255-4999-4d41-8815-bdb7fcd3d4c9
+GET {{API_HostAddress}}/activities/028db0f3-8dfb-47d0-a1bb-1df46134644a
 Accept: application/json
 Authorization: Bearer {{token}}
 

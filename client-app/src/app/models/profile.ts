@@ -16,6 +16,16 @@ export class Profile implements Profile {
   }
 }
 
+export class ProfileFormValues {
+  displayName: string = "";
+  bio?: string = "";
+
+  constructor(profile: Profile) {
+    this.displayName = profile.displayName;
+    this.bio = profile.bio;
+  }
+}
+
 export interface Photo {
   id: string;
   url: string;

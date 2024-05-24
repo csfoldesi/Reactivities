@@ -20,3 +20,15 @@ Content-Type: application/json; charset=utf-8
 Authorization: Bearer {{token}}
 
 ###
+
+
+#Update profile
+PUT {{API_HostAddress}}/profiles
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+{
+  "displayName": "Bob edited",
+  "bio": "Hi bio"
+}
+###
