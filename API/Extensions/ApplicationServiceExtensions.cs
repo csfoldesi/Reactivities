@@ -31,7 +31,11 @@ public static class ApplicationServiceExtensions
                 "CorsPolicy",
                 policy =>
                 {
-                    policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
+                    policy
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                        .WithOrigins("http://localhost:3000");
                 }
             );
         });
@@ -43,6 +47,8 @@ public static class ApplicationServiceExtensions
 
         services.AddFluentValidationAutoValidation();
         services.AddValidatorsFromAssemblyContaining<Create>();
+
+        services.AddSignalR();
 
         services.Configure<CloudinarySettings>(configuration.GetSection("Cloudinary"));
 

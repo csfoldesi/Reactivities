@@ -19,4 +19,6 @@ public class Activity
     public bool IsCancelled { get; set; }
 
     public ICollection<ActivityAttendee> Attendees { get; set; } = [];
+
+    public ICollection<Comment> Comments { get; set; } = [];
 }
