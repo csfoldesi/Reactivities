@@ -1,0 +1,44 @@
+@API_HostAddress = http://localhost:5000/api
+
+# Login
+# @name postLogin
+POST {{API_HostAddress}}/account
+Content-Type: application/json; charset=utf-8
+
+{
+  "email": "tom@test.com",
+  "password": "Pa$$w0rd"
+}
+
+###
+@token = {{postLogin.response.body.token}}
+
+
+# Get profile
+GET {{API_HostAddress}}/profiles/bob
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+###
+
+
+# Follow/unfollow Jane
+POST {{API_HostAddress}}/follow/tom
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+###
+
+# Follow/unfollow Tom
+POST {{API_HostAddress}}/follow/tom
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+###
+
+# Get followers/following
+GET {{API_HostAddress}}/follow/tom?predicate=followers
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+###

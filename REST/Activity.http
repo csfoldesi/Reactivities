@@ -58,7 +58,7 @@ Authorization: Bearer {{token}}
 
 
 # Get Activity details
-GET {{API_HostAddress}}/activities/028db0f3-8dfb-47d0-a1bb-1df46134644a
+GET {{API_HostAddress}}/activities/06f2371e-a945-4702-84c9-52db6ac901b7
 Accept: application/json
 Authorization: Bearer {{token}}
 
