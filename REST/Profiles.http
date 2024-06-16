@@ -32,3 +32,10 @@ Authorization: Bearer {{token}}
   "bio": "Hi bio"
 }
 ###
+
+#Get user activities
+GET {{API_HostAddress}}/profiles/bob/activities?predicate=next
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+###

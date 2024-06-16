@@ -65,7 +65,7 @@ Authorization: Bearer {{token}}
 ###
 
 # Get Activity list
-GET {{API_HostAddress}}/activities/
+GET {{API_HostAddress}}/activities?pageNumber=0&pageSize=5&startDate=2024-01-01
 Accept: application/json
 Origin: http://localhost:3000
 Authorization: Bearer {{token}}
