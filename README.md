@@ -1,6 +1,15 @@
-# Simple demo application for sharing activities with friends
+# Simple activity sharing application
 
-## Backend
+## Features
+
+- Regsiter, add profile description and images
+- Create, browse and join events
+- Follow friends
+- Realtime chat
+
+## Technology
+
+### Backend
 
 - Clean Architecture
 - .NET Core REST API
@@ -9,7 +18,7 @@
 - SignalR
 - Cloudinary image upload
 
-## Frontend
+### Frontend
 
 - React TypeScript
 - Semantic UI
@@ -37,7 +46,7 @@ Add ConnectionString in appsettings.json:
   }
 ```
 
-## Running the application
+## Run the application
 
 From API folder
 ```powershell
