@@ -2,7 +2,7 @@
 
 ## Features
 
-- Regsiter, add profile description and images
+- Register, add profile description and images
 - Create, browse and join events
 - Follow friends
 - Realtime chat
